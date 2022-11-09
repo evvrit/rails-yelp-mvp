@@ -1,0 +1,8 @@
+<%= simple_form_for @restaurant do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :category, as: :select, collection: %w[chinese italian japanese french belgian] %>
+  <%= f.button :submit %>
+<% end %>
+
+<%= link_to "<home", restaurants_path %>
