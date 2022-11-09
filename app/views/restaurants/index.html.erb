@@ -1,9 +1,14 @@
 <h1>Yelp!</h1>
 
-<ul>
-  <% @restaurants.each do |r| %>
-    <li><%= r.name %><br><%= link_to "details", restaurant_path(r) %></li>
-  <% end %>
-</ul>
+<div class="restaurants-container"
+  <ul>
+    <% @restaurants.each do |r| %>
+      <li class="restaurant-card"><%= link_to r.name, restaurant_path(r) %></li>
+    <% end %>
+  </ul>
+</div>
 
-<%= link_to "Add a new restaurant",  new_restaurant_path %>
+<div class="form"
+  <h1>Add a new restaurant:</h1>
+  <%= render "form", restaurant: @restaurant %>
+</div>

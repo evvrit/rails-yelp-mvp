@@ -1,9 +1,19 @@
 <h2><%= @restaurant.name %></h2>
 
-<p><%= @restaurant.category %><p>
-<p><%= @restaurant.address %></p>
+<%= @restaurant.category %>
+<%= @restaurant.address %>
 
-<%= @restaurant.review.rating %>
-<%= @restaurant.review.content %>
+<div class="reviews-container"
+  <ul>
+    <% @restaurant.reviews.each do |review| %>
+      <li>
+        <%= '⭐️' * review.rating %>
+        <%= review.content %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<%= render "reviews/form", restaurant: @restaurant %>
 
 <%= link_to "<home", restaurants_path %>
